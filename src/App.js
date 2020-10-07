@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Counter from './components/Counter'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+
+  constructor(props){
+    console.log("App.js constructeur")
+    super(props)
+    this.state={
+      mount:true
+    }
 }
 
-export default App;
+componentDidMount(){
+  console.log("App.js componentDidMount")
+}
+
+// switch =()=>this.setState({mount: !this.state.mount})
+
+  render() {
+    console.log("App.js render")
+    return (
+      <div className="App">
+        <h1>React Lifecycle methods</h1>
+        {/* <button onClick={this.switch}>switch</button>
+        {this.state.mount ? <Counter/> : null} */}
+        <Counter />
+      </div>
+    )
+  }
+}
+
